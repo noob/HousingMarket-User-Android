@@ -1,4 +1,4 @@
-package com.example.hulonghua.housingmarket;
+package com.example.hulonghua.one;
 
 import org.junit.Test;
 
