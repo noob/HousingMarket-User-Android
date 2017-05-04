@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -21,13 +22,14 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         bt =(Button)super.findViewById(R.id.intentbt);
         bt.setOnClickListener(new OnClickListenerIntent());
+
     }
     public class OnClickListenerIntent implements View.OnClickListener{
 
         @Override
         public void onClick(View view) {
             Intent intent = new Intent();
-            intent.setClass(MainActivity.this,Homepage.class);
+            intent.setClass(MainActivity.this,TrueMainActivity.class);
             startActivity(intent);
         }
     }

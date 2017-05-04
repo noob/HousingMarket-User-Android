@@ -6,4 +6,7 @@
     <color name="juice">#FF6633</color>
     <color name="huise">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
+    <!--分隔线-->
+    <color name="separation">#FFDCDCDC</color>
+    <color name="nomal">#000000</color>
 </resources>
