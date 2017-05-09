@@ -1,6 +1,7 @@
 package com.example.hulonghua.one;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -35,6 +36,7 @@ public class Homepage extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_homepage);
         ButterKnife.bind(this);
+        final int REQUEST_CODE = 1;
         location.setText("位置：");
         Class<?> c = searchView.getClass();
         try {
@@ -46,13 +48,13 @@ public class Homepage extends Activity {
             e.printStackTrace();
         }
         searchView.setOnQueryTextListener(new OnQuetyTextListenerImpl());
-        banner = (Banner) findViewById(R.id.banner);
         List<Integer> imgesUrl = new ArrayList<>();
         imgesUrl.add(R.mipmap.c);
         imgesUrl.add(R.mipmap.f);
         imgesUrl.add(R.mipmap.d);
         banner.setImages(imgesUrl);
         banner.setImageLoader(new GlideImageLoader());
+
         banner.start();
     }
 

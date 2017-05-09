@@ -49,6 +49,7 @@ public class TrueMainActivity extends AppCompatActivity {
         init();
     }
     private void init(){
+        setChooseItem(0);
         homepagelayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
