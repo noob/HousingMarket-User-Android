@@ -3,5 +3,130 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/juice">
+        <TextView
+            android:id="@+id/dingdanlist"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:text="订单列表"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/alllayout"
+            style="@style/myTabOption">
+
+
+            <TextView
+                android:id="@+id/alllayouttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部"
+                android:textColor="@color/nomal"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nopainlayout"
+            style="@style/myTabOption">
+
+            <TextView
+                android:id="@+id/nopainlayouttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/nomal"
+                android:text="未付款"
+                android:layout_weight="1"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/waitsendlayout"
+            style="@style/myTabOption"
+            android:padding="0dp">
+            <TextView
+                android:id="@+id/waitsendlayouttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/nomal"
+                android:layout_weight="1"
+                android:text="代配送"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sending"
+            style="@style/myTabOption">
+            <TextView
+                android:id="@+id/sendingtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="配送中"
+                android:textColor="@color/nomal"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/finishlayout"
+            style="@style/myTabOption">
+
+
+            <TextView
+                android:id="@+id/finishlayouttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已完成"
+                android:textColor="@color/nomal"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/refundlayout"
+            style="@style/myTabOption">
+
+
+            <TextView
+                android:id="@+id/refundlayouttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退款"
+                android:textColor="@color/nomal"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/separation"/>
+    <FrameLayout
+        android:id="@+id/indent_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
 </LinearLayout>
