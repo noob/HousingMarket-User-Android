@@ -1,6 +1,7 @@
 package com.example.hulonghua.one;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -40,12 +41,14 @@ public class MainActivity extends Activity {
     public Handler handler;
     public int id;
     public Intent intent;
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        context = MainActivity.this;
         init();
 
 
@@ -74,8 +77,8 @@ public class MainActivity extends Activity {
             }else {
                 Toast.makeText(MainActivity.this,"验证码错误",Toast.LENGTH_SHORT);
             }*/
-            SMSSDK.submitVerificationCode("86", phonenumber.getText().toString(), getverify.getText().toString());
-            Log.i("aaa","111");
+            SMSSDK.submitVerificationCode("86", phonenumber.getText().toString(), verifynumber.getText().toString());
+            Log.i("message","verifynumber.tostring= "+verifynumber.getText().toString());
         }
     }
     public class VerifyOnClickListener implements View.OnClickListener{
@@ -122,32 +125,33 @@ public class MainActivity extends Activity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             final MainActivity activity = mActivity.get();
+            Log.i("message","start?");
             if (activity != null) {
                 switch (msg.what) {
                     case SMSSID:
                         int event = msg.arg1;
                         int result = msg.arg2;
+                        Log.i("message","event= "+event);
+                        Log.i("message","result= "+result);
                         Object data = msg.obj;
+                        Log.i("message","data= "+data);
                         if (result == SMSSDK.RESULT_COMPLETE) {
-                            boolean smart = (Boolean)data;
-                            if(smart) {
-                                activity.intent = new Intent(activity, TrueMainActivity.class);
-                                activity.startActivity(activity.intent);
-                                activity.exit();
 
-                            } else {
                                 //短信注册成功后，返回MainActivity
+                                Log.i("message","start else");
                                 if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {   //提交验证码成功
 //                                activity.userLogin();
                                     activity.intent = new Intent(activity, TrueMainActivity.class);
                                     activity.startActivity(activity.intent);
                                     activity.exit();
+
                                 } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                                 } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {   //返回支持发送验证码的国家列表
                                 }
                             }
 
-                        } else {
+                         else {
+                            Log.i("message","start noresult");
                             if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                             } else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                                 Toast.makeText(activity,"验证码错误",Toast.LENGTH_SHORT);
